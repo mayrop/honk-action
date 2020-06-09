@@ -1,14 +1,15 @@
 {
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "build": "tsc --noEmit && ncc build honk.ts -o dist -m",
-    "test": "tsc --noEmit && jest",
-    "lint": "eslint . --ext .ts"
+    "release": "standard-version"
   },
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^2.2.0"
+    "@actions/github": "^2.2.0",
+    "spdx-license-ids": "^3.0.5",
+    "standard-version": "^8.0.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
