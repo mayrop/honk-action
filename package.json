@@ -1,7 +1,10 @@
 {
-  "version": "1.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
+    "build": "tsc --noEmit && ncc build src/* -o dist",
+    "test": "tsc --noEmit && jest",
+    "lint": "eslint . --ext .ts",
     "release": "standard-version"
   },
   "license": "ISC",
