@@ -1,6 +1,6 @@
 name: honk
 description: "Checks to see if a comment contains 'Honk', otherwise deletes it"
-author: "@jeffrafter"
+author: '@jeffrafter'
 inputs:
   token:
     description: >
@@ -12,5 +12,5 @@ inputs:
     default: ${{ github.token }}
     required: false
 runs:
-  using: "node12"
-  main: "./dist/index.js"
+  using: 'node12'
+  main: './honk.js'
