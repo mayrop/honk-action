@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -69,13 +69,7 @@ const run = async () => {
         const lastCommitSha = getGitCommitHash();
         const head = getCurrentHead();
         if (!lastCommits.includes(lastCommitSha)) {
-            await octokit.git.updateRef({
-                owner,
-                repo,
-                sha: lastCommitSha,
-                ref: `heads/${head}`,
-                force: true,
-            });
+            child_process_1.execSync(`git push origin ${head}`).toString().trim();
         }
         // This action works on issue comments. Because of this we expect the context
         // payload to contain the issue and the comment

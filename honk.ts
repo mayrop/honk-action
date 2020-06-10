@@ -59,13 +59,7 @@ const run = async (): Promise<void> => {
     const head = getCurrentHead()
 
     if (!lastCommits.includes(lastCommitSha)) {
-      await octokit.git.updateRef({
-        owner,
-        repo,
-        sha: lastCommitSha,
-        ref: `heads/${head}`,
-        force: true,
-      })
+      execSync(`git push origin ${head}`).toString().trim()
     }
     // This action works on issue comments. Because of this we expect the context
     // payload to contain the issue and the comment
