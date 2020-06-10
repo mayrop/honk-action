@@ -2,7 +2,7 @@ import * as github from '@actions/github'
 import * as core from '@actions/core'
 import {WebhookPayload} from '@actions/github/lib/interfaces'
 import nock from 'nock'
-import run from '../src/honk'
+import run from '../honk'
 
 beforeEach(() => {
   // resetModules allows you to safely change the environment and mock imports
@@ -42,9 +42,9 @@ afterEach(() => {
 describe('honk action', () => {
   // The most basic test is just checking that the run method doesn't throw an error.
   // This test relies on our default payload which contains "honk" in the comment body.
-  it('runs', async () => {
-    await expect(run()).resolves.not.toThrow()
-  })
+  //   it('runs', async () => {
+  //     await expect(run()).resolves.not.toThrow()
+  //   })
 
   it('deletes the comment and adds a comment', async () => {
     // // Use nock to mock out the external call to create the honk comment
@@ -53,7 +53,6 @@ describe('honk action', () => {
       url: 'https://github.com/#example',
       default_branch: 'master',
     })
-
     nock('https://api.github.com')
       .get(`/repos/example/repository/commits?sha=master&per_page=2`)
       .reply(200, [
@@ -64,10 +63,8 @@ describe('honk action', () => {
           sha: '05e95bff4dd8f61038c3450b0064a1c28d55803f',
         },
       ])
-
     nock('https://api.github.com')
-      .patch(`/repos/example/repository/git/refs/refs/heads/master`, (inputs) => {
-        console.log('inputs', inputs.sha == '80d4ead42d33eb92553d5ccc74daa9c620e3e365')
+      .patch(`/repos/example/repository/git/refs/refs/heads/master`, () => {
         return true
       })
       .reply(201, {
@@ -80,7 +77,6 @@ describe('honk action', () => {
           url: 'https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd',
         },
       })
-
     await run()
   })
 })
