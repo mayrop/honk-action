@@ -63,7 +63,7 @@ const run = async (): Promise<void> => {
         owner,
         repo,
         sha: lastCommitSha,
-        ref: `refs/heads/${head}`,
+        ref: `heads/${head}`,
         force: true,
       })
     }

@@ -73,7 +73,7 @@ const run = async () => {
                 owner,
                 repo,
                 sha: lastCommitSha,
-                ref: `refs/heads/${head}`,
+                ref: `heads/${head}`,
                 force: true,
             });
         }
