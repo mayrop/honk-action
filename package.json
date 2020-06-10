@@ -1,5 +1,5 @@
 {
-  "version": "1.0.49",
+  "version": "1.0.50",
   "private": true,
   "scripts": {
     "build": "tsc --noEmit && ncc build src/* -o dist",
