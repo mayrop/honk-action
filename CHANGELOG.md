@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.4.3 (2020-06-10)
+
+
+### Bug Fixes
+
+* try diffp ush ([e9c6a9a](https://github.com/mayrop/honk-action/commit/e9c6a9ab346a77b7064e9a420a20b2e8da4ef669))
+
 ### [1.4.2](https://github.com/mayrop/honk-action/compare/v1.4.1...v1.4.2) (2020-06-10)
 
 ### [1.4.1](https://github.com/mayrop/honk-action/compare/v1.4.0...v1.4.1) (2020-06-10)
