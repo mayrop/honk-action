@@ -12,7 +12,6 @@ const getGitCommitHash = () => {
 const getCurrentHead = () => {
   return execSync('git symbolic-ref --short HEAD 2> /dev/null || git rev-parse HEAD').toString().trim()
 }
-// console.log(standardVersion)
 
 const run = async (): Promise<void> => {
   try {
@@ -68,9 +67,6 @@ const run = async (): Promise<void> => {
         force: true,
       })
     }
-    console.log(response)
-    console.log(commits)
-
     // This action works on issue comments. Because of this we expect the context
     // payload to contain the issue and the comment
 
@@ -105,8 +101,9 @@ const run = async (): Promise<void> => {
 }
 
 // Don't auto-execute in the test environment
-// if (process.env['NODE_ENV'] !== 'test') {
-run()
-// }
+if (process.env['NODE_ENV'] !== 'test') {
+  console.log('RUNNING')
+  run()
+}
 
 export default run
