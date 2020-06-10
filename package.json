@@ -1,6 +1,7 @@
 {
   "version": "1.0.63",
   "private": true,
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc --noEmit && ncc build src/honk.ts -o dist -m",
     "test": "tsc --noEmit && jest",
