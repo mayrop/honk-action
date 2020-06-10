@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/mayrop/honk-action/compare/v1.3.33...v1.4.0) (2020-06-10)
+
+
+### Features
+
+* change logic for the commit ([e305e02](https://github.com/mayrop/honk-action/commit/e305e02dd2b0768b75e294254996d67386e88a85))
+
 ### [1.3.33](https://github.com/mayrop/honk-action/compare/v1.3.32...v1.3.33) (2020-06-10)
 
 ### [1.3.32](https://github.com/mayrop/honk-action/compare/v1.3.31...v1.3.32) (2020-06-10)
