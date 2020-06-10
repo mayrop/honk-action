@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+import standardVersion from 'standard-version'
 import {execSync} from 'child_process'
 
 const gitCommand = 'git rev-parse HEAD'
@@ -12,13 +13,8 @@ const getCurrentHead = () => {
   return execSync('git symbolic-ref --short HEAD 2> /dev/null || git rev-parse HEAD').toString().trim()
 }
 
-const runReleaseCommand = () => {
-  return execSync('standard-version').toString().trim()
-}
-
 const run = async (): Promise<void> => {
   try {
-    // console.log(semver)
     // Our action will need to API access the repository so we require a token
     // This can be set in the calling workflow or it can use the default
     const token = process.env['GITHUB_TOKEN'] || core.getInput('token')
@@ -36,7 +32,11 @@ const run = async (): Promise<void> => {
 
     // Options are the same as command line, except camelCase
     // standardVersion returns a Promise
-    runReleaseCommand()
+    await standardVersion({
+      noVerify: true,
+      infile: 'CHANGELOG.md',
+      silent: true,
+    })
 
     const response = await octokit.request('GET /repos/:owner/:repo', {
       owner,
