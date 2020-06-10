@@ -3,7 +3,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --noEmit && ncc build src/honk.ts -o dist -m",
+    "build": "tsc --noEmit && ncc build honk.ts -o dist",
     "test": "tsc --noEmit && jest",
     "lint": "eslint . --ext .ts",
     "release": "standard-version"
