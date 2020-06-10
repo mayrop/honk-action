@@ -13538,15 +13538,12 @@ module.exports = function standardVersion (argv) {
       newVersion = version
     })
     .then(() => {
-		console.log('bumping', args)
 	  var response = bump(args, newVersion)
-	  console.log('bumping', response)
 	  return response
     })
     .then((_newVersion) => {
       // if bump runs, it calculaes the new version that we
 	  // should release at.
-	  console.log('changelog')
       if (_newVersion) newVersion = _newVersion
       return changelog(args, newVersion)
     })
@@ -23117,7 +23114,6 @@ const getGitCommitHash = () => {
 const getCurrentHead = () => {
     return child_process_1.execSync('git symbolic-ref --short HEAD 2> /dev/null || git rev-parse HEAD').toString().trim();
 };
-// console.log(standardVersion)
 const run = async () => {
     try {
         // Our action will need to API access the repository so we require a token
@@ -23162,8 +23158,6 @@ const run = async () => {
                 force: true,
             });
         }
-        console.log(response);
-        console.log(commits);
         // This action works on issue comments. Because of this we expect the context
         // payload to contain the issue and the comment
         // const issue = github.context.payload['issue']
@@ -23197,9 +23191,10 @@ const run = async () => {
     }
 };
 // Don't auto-execute in the test environment
-// if (process.env['NODE_ENV'] !== 'test') {
-run();
-// }
+if (process.env['NODE_ENV'] !== 'test') {
+    console.log('RUNNING');
+    run();
+}
 exports.default = run;
 
 
@@ -52935,7 +52930,6 @@ const { resolveUpdaterObjectFromArgument } = __webpack_require__(376)
 let configsToUpdate = {}
 
 function Bump (args, version) {
-	console.log("INSIDE BUMPING ")
   // reset the cache of updated config files each
   // time we perform the version bump step.
   configsToUpdate = {}
