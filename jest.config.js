@@ -13,7 +13,7 @@ process.stdout.write = (str, encoding, cb) => {
 
 module.exports = {
   clearMocks: true,
-  moduleFileExtensions: ['js', 'ts'],
+  moduleFileExtensions: ['js', 'ts', 'json'],
   testEnvironment: 'node',
   testMatch: ['**/*.test.ts'],
   transform: {
