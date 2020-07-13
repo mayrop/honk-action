@@ -14,7 +14,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^2.2.0",
-    "standard-version": "^8.0.0"
+    "standard-version": "^8.0.1"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
